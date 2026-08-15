@@ -1,0 +1,35 @@
+menu "WiFiSense Ultra"
+    config WIFISENSE_WIFI_SSID
+        string "Wi-Fi SSID"
+        default "YOUR_WIFI_SSID"
+
+    config WIFISENSE_WIFI_PASSWORD
+        string "Wi-Fi password"
+        default "YOUR_WIFI_PASSWORD"
+
+    config WIFISENSE_SERVER_IP
+        string "WiFiSense server IPv4 address"
+        default "192.168.1.100"
+
+    config WIFISENSE_SERVER_PORT
+        int "WiFiSense CSI TCP port"
+        default 8089
+        range 1 65535
+
+    config WIFISENSE_NODE_ID
+        string "Unique node ID"
+        default "esp32_node_1"
+
+    config WIFISENSE_INGEST_TOKEN
+        string "Optional CSI ingest token"
+        default ""
+        help
+            If the server sets WIFISENSE_INGEST_TOKEN, enter the same token here.
+            The token prevents unauthenticated node spoofing on a trusted LAN but
+            does not encrypt the TCP transport.
+
+    config WIFISENSE_TARGET_HZ
+        int "Maximum CSI frames per second"
+        default 20
+        range 1 100
+endmenu
